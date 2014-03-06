@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="login" class="br.mackenzie.tpa3.action.LoginAction">
+            <result name="success">/principal.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+    </package>
+</struts>
