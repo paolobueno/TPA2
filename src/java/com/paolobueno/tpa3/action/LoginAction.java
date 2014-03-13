@@ -1,6 +1,6 @@
-package br.mackenzie.tpa3.action;
+package com.paolobueno.tpa3.action;
 
-import br.mackenzie.tpa3.collections.Users;
+import com.paolobueno.tpa3.collections.Users;
 import static com.opensymphony.xwork2.Action.INPUT;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;

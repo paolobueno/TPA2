@@ -9,10 +9,14 @@
     <body>
         <h2>Login</h2>
         <s:actionerror/>
-        <s:form action="login" method="POST">
-            <s:textfield name="login" label="Login "/>
-            <s:password name="senha" label="Senha "/>
-            <s:submit value="Entrar"/>
-        </s:form>
+        <form action="/login" method="POST">
+            <label for="login">Login</label>
+            <input id="login" type="text" name="login"/>
+            
+            <label for="password">Login</label>
+            <input id="password" type="password" name="senha"/>
+            
+            <input type="submit" value="Entrar" />
+        </form>
     </body>
 </html>

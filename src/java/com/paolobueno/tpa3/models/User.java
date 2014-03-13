@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.mackenzie.tpa3.models;
+package com.paolobueno.tpa3.models;
 
 /**
  *
