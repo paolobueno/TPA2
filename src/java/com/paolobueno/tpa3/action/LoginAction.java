@@ -26,17 +26,6 @@ public class LoginAction extends ActionSupport {
             return INPUT;
         }
     }
-
-    /*
-     @Override
-     public void validate() {
-     if (getLogin().equals("")) {
-     addActionError(getText("login.loginObrigatorio"));
-     }
-     else if (getSenha().equals("")) {
-     addActionError(getText("login.senhaObrigatoria"));
-     }
-     }*/
     /**
      * @return the login
      */

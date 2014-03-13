@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author 31239943
  */
-public class Users {
+public class Users implements KeyedRepository<String, User> {
     private static Users theInstance;
 
     private static void seedTestUsers(Users users) {
@@ -55,5 +55,9 @@ public class Users {
             return true;
         }
         return false;
+    }
+    
+    public User find(String username) {
+        return users.get(username);
     }
 }
