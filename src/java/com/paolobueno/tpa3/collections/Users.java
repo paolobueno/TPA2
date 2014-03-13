@@ -32,6 +32,8 @@ public class Users {
     }
     
     public boolean verify(String username, String password) {
+        if(!users.containsKey(username)) return false;
+        
         User user = users.get(username);
         return user.getPassword().equals(password);
     }
@@ -48,7 +50,10 @@ public class Users {
         return true;
     }
     
-    public void remove(String username) {
-        users.remove(username);
+    public boolean remove(String username) {
+        if(users.remove(username) != null) {
+            return true;
+        }
+        return false;
     }
 }
