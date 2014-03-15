@@ -18,4 +18,8 @@ public class UserCounter {
     public static int logOut() {
         return --usersCount;
     }
+    
+    public static int getCount() {
+        return usersCount;
+    }
 }

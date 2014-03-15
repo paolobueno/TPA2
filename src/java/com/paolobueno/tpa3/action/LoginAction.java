@@ -4,6 +4,7 @@ import com.paolobueno.tpa3.collections.Users;
 import static com.opensymphony.xwork2.Action.INPUT;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
+import com.paolobueno.tpa3.collections.UserCounter;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
@@ -20,6 +21,7 @@ public class LoginAction extends ActionSupport {
             HttpSession sessao = ServletActionContext.getRequest().getSession();
             sessao.setAttribute("usuario", getLogin());
             sessao.setAttribute("mensagem", "");
+            UserCounter.logIn();
             return SUCCESS;
         } else {
             addActionError(getText("login.senhaInvalida"));

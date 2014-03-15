@@ -5,7 +5,7 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <package name="default" namespace="/" extends="struts-default">
-        <action name="login" class="br.mackenzie.tpa3.action.LoginAction">
+        <action name="login" class="com.paolobueno.tpa3.action.LoginAction">
             <result name="success">/principal.jsp</result>
             <result name="input">/login.jsp</result>
         </action>

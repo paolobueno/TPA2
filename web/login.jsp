@@ -9,7 +9,7 @@
     <body>
         <h2>Login</h2>
         <s:actionerror/>
-        <form action="/login" method="POST">
+        <form action="login" method="POST">
             <label for="login">Login</label>
             <input id="login" type="text" name="login"/>
             

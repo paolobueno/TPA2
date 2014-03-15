@@ -5,40 +5,49 @@
 package com.paolobueno.tpa3.collections;
 
 import com.paolobueno.tpa3.models.Message;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 
-    
 /**
  *
  * @author 31227848
  */
-public class Messages implements KeyedRepository<Integer, Message> {
+public class Messages {
 
     // Singleton
     private static Messages theInstance;
+
     private Messages() {
     }
+
     public static Messages getInstance() {
-        if(theInstance == null) theInstance = new Messages();
+        if (theInstance == null) {
+            theInstance = new Messages();
+        }
         return theInstance;
     }
+
+    private final LinkedList<Message> messages = new LinkedList<Message>();
+
     
-    private HashMap<Integer, Message> messages = new HashMap<Integer, Message>();
-    
-    @Override
     public boolean add(Message entity) {
-        return messages.put(Message.getId(), entity) != null;
+        return messages.add(entity);
     }
 
-    @Override
-    public boolean remove(Integer Entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Message find(Integer key) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public boolean remove(Message entity) {
+        return messages.remove(entity);
     }
     
+    public Collection<Message> findByUser(String username){
+        LinkedList<Message> result = new LinkedList<Message>();
+        for(Message m : messages){
+            if (m.getUserName().equals(username)) {
+                result.add(m);
+            }
+        }
+        return result;
     }
+
 }
