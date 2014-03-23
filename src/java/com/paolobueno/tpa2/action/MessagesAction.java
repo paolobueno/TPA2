@@ -10,14 +10,39 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.paolobueno.tpa2.collections.Messages;
 import com.paolobueno.tpa2.models.Message;
 import java.util.Collection;
+import java.util.Date;
+import javax.servlet.http.HttpSession;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
  * @author Paolo
  */
 public class MessagesAction extends ActionSupport {
+    private String message = null;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
     @Override
     public String execute() {
+        if (getMessage() != null) {
+            // Eh POST, devemos criar nova mensagem
+            Messages collection = Messages.getInstance();
+            HttpSession sessao = ServletActionContext.getRequest().getSession();
+            
+            collection.add(new Message(
+                (String) sessao.getAttribute("usuario"),
+                getMessage(),
+                new Date()
+            ));
+        }
+        
         return SUCCESS;
     }
     

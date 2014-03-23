@@ -1,3 +1,4 @@
+<%@page import="com.paolobueno.tpa2.collections.UserManager"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
 %><%@taglib prefix="s" uri="/struts-tags"
 %><jsp:include page="header.jsp"
@@ -11,4 +12,11 @@
     </article>
     </s:iterator>
 </section>
+<% if(UserManager.isLoggedIn(session)) { %>
+<form method="POST" action="messages">
+    <label for="message">Mensagem</label>
+    <textarea rows="4" name="message" id="message"></textarea>
+    <input type="submit" value="Enviar mensagem">
+</form>
 <jsp:include page="footer.jsp" />
+<% } %>

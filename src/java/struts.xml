@@ -5,8 +5,8 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <package name="default" namespace="/" extends="struts-default">
-        <action name="">
-            <result>login.jsp</result>
+        <action name="" class="com.paolobueno.tpa2.action.MessagesAction">
+            <result>/principal.jsp</result>
         </action>
         <action name="login" class="com.paolobueno.tpa2.action.LoginAction">
             <result name="login" type="redirectAction">
@@ -15,7 +15,15 @@
             <result name="input">login.jsp</result>
         </action>
         <action name="messages" class="com.paolobueno.tpa2.action.MessagesAction">
-            <result>/principal.jsp</result>
+            <result type="redirect">
+                <param name="location">/</param>
+            </result>
+        </action>
+        
+        <action name="logout" class="com.paolobueno.tpa2.action.LogoutAction">
+            <result type="redirect">
+                <param name="location">/</param>
+            </result>
         </action>
     </package>
 </struts>
