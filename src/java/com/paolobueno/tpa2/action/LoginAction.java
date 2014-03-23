@@ -22,7 +22,7 @@ public class LoginAction extends ActionSupport {
             sessao.setAttribute("usuario", getLogin());
             sessao.setAttribute("mensagem", "");
             UserCounter.logIn();
-            return SUCCESS;
+            return LOGIN;
         } else {
             addActionError(getText("login.senhaInvalida"));
             return INPUT;

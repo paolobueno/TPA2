@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Mackwitter</title>
-        <s:head/>
     </head>
 <p>Olá, <%= session.getAttribute("usuario") %></p>
 <p><%= UserCounter.getCount() %> usuários logados agora</p>

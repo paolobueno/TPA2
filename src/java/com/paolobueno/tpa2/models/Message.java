@@ -16,6 +16,12 @@ public class Message {
     private Date date;
     private int id;
 
+    public Message(String username, String message, Date date) {
+        this.setUserName(username);
+        this.setMessage(message);
+        this.setDate(date);
+    }
+
     /**
      * @return the message
      */

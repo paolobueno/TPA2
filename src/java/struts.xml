@@ -9,12 +9,12 @@
             <result>login.jsp</result>
         </action>
         <action name="login" class="com.paolobueno.tpa2.action.LoginAction">
-            <result name="success" type="redirectAction">
+            <result name="login" type="redirectAction">
                 <param name="actionName">messages</param>
             </result>
             <result name="input">login.jsp</result>
         </action>
-        <action name="messages">
+        <action name="messages" class="com.paolobueno.tpa2.action.MessagesAction">
             <result>/principal.jsp</result>
         </action>
     </package>

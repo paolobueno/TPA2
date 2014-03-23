@@ -6,6 +6,8 @@ package com.paolobueno.tpa2.collections;
 
 import com.paolobueno.tpa2.models.Message;
 import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -24,6 +26,7 @@ public class Messages {
     public static Messages getInstance() {
         if (theInstance == null) {
             theInstance = new Messages();
+            theInstance.seed();
         }
         return theInstance;
     }
@@ -40,6 +43,10 @@ public class Messages {
         return messages.remove(entity);
     }
     
+    public Collection<Message> findAll() {
+        return (Collection<Message>)messages.clone();
+    }
+    
     public Collection<Message> findByUser(String username){
         LinkedList<Message> result = new LinkedList<Message>();
         for(Message m : messages){
@@ -48,6 +55,11 @@ public class Messages {
             }
         }
         return result;
+    }
+
+    private void seed() {
+        this.add(new Message("paolo", "hello world", new Date()));
+        this.add(new Message("admin", "lorem ipsum dolor sit amet", new Date()));
     }
 
 }
