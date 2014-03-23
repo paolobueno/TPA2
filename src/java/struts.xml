@@ -8,7 +8,7 @@
         <action name="">
             <result>login.jsp</result>
         </action>
-        <action name="login" class="com.paolobueno.tpa3.action.LoginAction">
+        <action name="login" class="com.paolobueno.tpa2.action.LoginAction">
             <result name="success" type="redirectAction">
                 <param name="actionName">messages</param>
             </result>

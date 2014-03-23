@@ -1,4 +1,4 @@
-<%@page import="com.paolobueno.tpa3.collections.UserCounter"%><!DOCTYPE html>
+<%@page import="com.paolobueno.tpa2.collections.UserCounter"%><!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">

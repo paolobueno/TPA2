@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.paolobueno.tpa3.collections;
+package com.paolobueno.tpa2.collections;
 
 /**
  *
