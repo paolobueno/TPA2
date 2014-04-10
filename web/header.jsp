@@ -5,10 +5,10 @@
         <title>Mackwitter</title>
     </head>
 <% if(UserManager.isLoggedIn(session)) { %>
-<p>Olá, <%= session.getAttribute("usuario") %></p>
-<p><%= UserManager.getCount() %> usuários logados agora</p>
+<p>Olï¿½, <%= session.getAttribute("usuario") %></p>
+<p><%= UserManager.getCount() %> usuï¿½rios logados agora</p>
 <p>
-    <a href="/TPA2/logout">Logout</a>
+    <a href="/TPA2-master/logout">Logout</a>
 </p>
 <% } else { %>
 <h2>Login</h2>
