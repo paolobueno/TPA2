@@ -13,10 +13,39 @@
     </s:iterator>
 </section>
 <% if(UserManager.isLoggedIn(session)) { %>
-<form method="POST" action="messages">
+<!-- Adicionado por Junior, contador e limitador de caracteres 10/04/2014 -->
+
+<form name="myform" method="POST" action="messages">
     <label for="message">Mensagem</label>
-    <textarea rows="4" name="message" id="message"></textarea>
+    
+ <!-- Script by hscripts.com --> 
+                <script type="text/javascript">
+                var count = "255";  
+                function limiter(){
+                var tex = document.myform.message.value;
+                var len = tex.length;
+                if(len > count){
+                        tex = tex.substring(0,count);
+                        document.myform.message.value =tex;
+                        return false;
+                }
+                document.myform.limit.value = count-len;
+                }
+
+                </script>
+<!-- Script by hscripts.com -->
+    
+
+    <textarea wrap=physical rows="4" name="message"  onkeyup=limiter(); id="message"></textarea>
+    <script type="text/javascript">
+    document.write("<input type=text name=limit size=4 readonly value="+count+">");
+    </script>
+    
     <input type="submit" value="Enviar mensagem">
 </form>
+
+
+
+
 <jsp:include page="footer.jsp" />
 <% } %>
