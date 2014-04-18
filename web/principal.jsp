@@ -37,11 +37,14 @@
     
 
     <textarea wrap=physical rows="4" name="message"  onkeyup=limiter(); id="message"></textarea>
+    
     <script type="text/javascript">
     document.write("<input type=text name=limit size=4 readonly value="+count+">");
     </script>
     
     <input type="submit" value="Enviar mensagem">
+    
+    <s:fielderror></s:fielderror>
 </form>
 
 
