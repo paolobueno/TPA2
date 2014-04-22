@@ -45,7 +45,7 @@ public class MessagesAction extends ActionSupport {
         
         return SUCCESS;
     }
-    
+    /* erradoooo :/  
     @Override
     public void validate()
    {
@@ -55,6 +55,7 @@ public class MessagesAction extends ActionSupport {
       }
       
    }
+   */
     
     
     public Collection<Message> getMessages() {
