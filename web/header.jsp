@@ -1,25 +1,53 @@
 <%@page import="com.paolobueno.tpa2.collections.UserManager"%><!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="stylePage.css" type="text/css" media="screen">
+        
         <meta charset="UTF-8">
         <title>Mackwitter</title>
     </head>
-<% if(UserManager.isLoggedIn(session)) { %>
-<p>Ol�, <%= session.getAttribute("usuario") %></p>
-<p><%= UserManager.getCount() %> usu�rios logados agora</p>
-<p>
-    <a href="/TPA2-master/logout">Logout</a>
-</p>
-<% } else { %>
-<h2>Login</h2>
-<s:actionerror/>
-<form action="login" method="POST">
-    <label for="login">Login</label>
-    <input id="login" type="text" name="login"/>
+ <div id="todo">
+    <div id="topo">
+		<div id="logo"><img src="logo-top.jpg" /></div>
+		
+    </div>
+    
+    
+     
+        <div id="meio">
+		<div id="esquerda">
+			<div id="menu">
+				<div class="itemMenu">Principal</div>
+				<div class="itemMenu">Empresa</div>
+				<div class="itemMenu">Produtos</div>
+				<div class="itemMenu">Serviços</div>
+				<div class="itemMenu">Contato</div>
+			</div>
+		</div>
 
-    <label for="password">Login</label>
-    <input id="password" type="password" name="senha"/>
+		<div id="miolo">
+			<div class="secao_miolo">
+                            
+                                <% if(UserManager.isLoggedIn(session)) { %>
+                                <p class="boavinda">Olá, <%= session.getAttribute("usuario") %></p>
+                                <p class="boavinda"><%= UserManager.getCount() %> usuários logados agora</p>
+                                <p class="boavindadir">
+                                    <a href="/TPA2-master/logout">Logout</a>
+                                </p>
+                                <% } else { %>
+                                <h2>Login</h2>
+                                <s:actionerror/>
+                                <form action="login" method="POST">
+                                    <label for="login">Login</label>
+                                    <input id="login" type="text" name="login"/>
 
-    <input type="submit" value="Entrar" />
-</form>
-<% } %>
+                                    <label for="password">Login</label>
+                                    <input id="password" type="password" name="senha"/>
+
+                                    <input type="submit" value="Entrar" />
+                                </form>
+                        </div>
+                                
+                         <% } %>       
+                        
+
