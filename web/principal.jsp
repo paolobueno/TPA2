@@ -2,53 +2,77 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
 %><%@taglib prefix="s" uri="/struts-tags"
 %><jsp:include page="header.jsp"
-/><h1>Mensagens</h1>
-<section id="messages">
-    <s:iterator value="messages">
-    <article class="message">
-        <p class="user"><s:property value="userName" /></p>
-        <p class="text"><s:property value="message" /></p>
-        <p class="date"><s:property value="date" /></p>
-    </article>
-    </s:iterator>
-</section>
-<% if(UserManager.isLoggedIn(session)) { %>
-<!-- Adicionado por Junior, contador e limitador de caracteres 10/04/2014 -->
+/>
+<div class="secao_miolo">
 
-<form name="myform" method="POST" action="messages">
-    <label for="message">Mensagem</label>
+    <h1>Mensagens</h1>
+    <section id="messages">
+        <s:iterator value="messages">
+        <article class="message">
+            <p class="user"><s:property value="userName" /></p>
+            <p class="text"><s:property value="message" /></p>
+            <p class="date"><s:property value="date" /></p>
+        </article>
+        </s:iterator>
+    </section>
+    <% if(UserManager.isLoggedIn(session)) { %>
+    <!-- Adicionado por Junior, contador e limitador de caracteres 10/04/2014 -->
+</div>
     
- <!-- Script by hscripts.com --> 
-                <script type="text/javascript">
-                var count = "255";  
-                function limiter(){
-                var tex = document.myform.message.value;
-                var len = tex.length;
-                if(len > count){
-                        tex = tex.substring(0,count);
-                        document.myform.message.value =tex;
-                        return false;
-                }
-                document.myform.limit.value = count-len;
-                }
+<div class="secao_miolo">    
+    <form name="myform" method="POST" action="messages">
+        <label for="message">Mensagem</label>
 
-                </script>
-<!-- Script by hscripts.com -->
+     <!-- Script by hscripts.com --> 
+                    <script type="text/javascript">
+                    var count = "255";  
+                    function limiter(){
+                    var tex = document.myform.message.value;
+                    var len = tex.length;
+                    if(len > count){
+                            tex = tex.substring(0,count);
+                            document.myform.message.value =tex;
+                            return false;
+                    }
+                    document.myform.limit.value = count-len;
+                    }
+
+                    </script>
+    <!-- Script by hscripts.com -->
+
+
+        <textarea wrap=physical rows="4" name="message"  onkeyup=limiter(); id="message"></textarea>
+
+        <script type="text/javascript">
+        document.write("<input type=text name=limit size=4 readonly value="+count+">");
+        </script>
+
+        <input type="submit" value="Enviar mensagem">
+
+        <s:fielderror></s:fielderror>
+    </form>
+
+
+</div>
+    </div>    
     
-
-    <textarea wrap=physical rows="4" name="message"  onkeyup=limiter(); id="message"></textarea>
     
-    <script type="text/javascript">
-    document.write("<input type=text name=limit size=4 readonly value="+count+">");
-    </script>
     
-    <input type="submit" value="Enviar mensagem">
     
-    <s:fielderror></s:fielderror>
-</form>
-
-
-
+</div>
+<div id="direita">
+			<div class="secao_direita">Seção 1 direita </div>
+			<div class="secao_direita">Seção 2 direita </div>
+			<div class="secao_direita">Seção 3 direita </div>
+    </div>
+	<div style="clear: both;"></div>	
+     <div id="rodape">
+		<div id="rodape_direita">
+			Universidade Presbiteriana Mackenzie<br/>
+			TPA 2 - Prof Leandro<br/>
+			Alunos: Anisio Junior, Carlos Bragatto, Paolo Haji, Paulo Henrique Oliveira
+		</div>
+     </div>
 
 <jsp:include page="footer.jsp" />
 <% } %>
