@@ -41,7 +41,7 @@
                                     <label for="login">Login</label>
                                     <input id="login" type="text" name="login"/>
 
-                                    <label for="password">Login</label>
+                                    <label for="password">Senha</label>
                                     <input id="password" type="password" name="senha"/>
 
                                     <input type="submit" value="Entrar" />
