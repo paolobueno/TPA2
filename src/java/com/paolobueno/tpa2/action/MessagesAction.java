@@ -33,6 +33,10 @@ public class MessagesAction extends ActionSupport {
     public String execute() {
         if (getMessage() != null) {
             // Eh POST, devemos criar nova mensagem
+            if (getMessage().length() > 255) {
+                addFieldError("message", "Quantidade de caracteres maior do que 255");
+                return INPUT;
+            }
             Messages collection = Messages.getInstance();
             HttpSession sessao = ServletActionContext.getRequest().getSession();
             

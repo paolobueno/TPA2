@@ -6,8 +6,11 @@
     <constant name="struts.devMode" value="true" />
     <package name="default" namespace="/" extends="struts-default">
         <action name="" class="com.paolobueno.tpa2.action.MessagesAction">
-            <result>/principal.jsp</result>
-            <result name="input">/index.jsp</result>
+            <result name="success">/principal.jsp</result>
+            <result name="input">
+                <param name="status">400</param> 
+                <param name="location">/principal.jsp</param>
+            </result>
         </action>
         
         
@@ -20,10 +23,12 @@
         
         
         <action name="messages" class="com.paolobueno.tpa2.action.MessagesAction">
-            <!-- <result name="input">/index.jsp</result> action para messagens acima de 255chars  -->
-            
-            <result type="redirect">
+            <result name="success" type="redirect">
                 <param name="location">/</param>
+            </result>
+            <result name="input">
+                <param name="status">400</param> 
+                <param name="location">/principal.jsp</param>
             </result>
         </action>
         
