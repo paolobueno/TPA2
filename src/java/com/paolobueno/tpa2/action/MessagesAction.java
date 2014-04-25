@@ -49,18 +49,7 @@ public class MessagesAction extends ActionSupport {
         
         return SUCCESS;
     }
-    /* erradoooo :/  
-    @Override
-    public void validate()
-   {
-      if (message.length() > 255 )
-      {
-         addFieldError("message","Quantidade de caracteres maior do que 255");
-      }
-      
-   }
-   */
-    
+   
     
     public Collection<Message> getMessages() {
         return Messages.getInstance().findAll();
