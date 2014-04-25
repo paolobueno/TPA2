@@ -10,7 +10,7 @@
         <hr />
         <s:iterator value="messages">
         <article class="message">
-            <p class="user"><s:property value="userName" /></p>
+            <p class="user"><s:property value="userName"/></p>
             <p class="text"><s:property value="message" /></p>
             <p class="date"><s:property value="date" /></p><hr />
         </article>
