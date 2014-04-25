@@ -20,7 +20,7 @@
 				<div class="itemMenu">Principal</div>
 				<div class="itemMenu">Empresa</div>
 				<div class="itemMenu">Produtos</div>
-				<div class="itemMenu">Serviços</div>
+				<div class="itemMenu">ServiÃ§os</div>
 				<div class="itemMenu">Contato</div>
 			</div>
 		</div>
@@ -29,10 +29,10 @@
 			<div class="secao_miolo">
                             
                                 <% if(UserManager.isLoggedIn(session)) { %>
-                                <p class="boavinda">Olá, <%= session.getAttribute("usuario") %></p>
+                                <p class="boavindanome">Olá, <%= session.getAttribute("usuario") %></p>
                                 <p class="boavinda"><%= UserManager.getCount() %> usuários logados agora</p>
                                 <p class="boavindadir">
-                                    <a href="/TPA2-master/logout">Logout</a>
+                                    <a href="/TPA2/logout">Logout</a>
                                 </p>
                                 <% } else { %>
                                 <h2>Login</h2>
