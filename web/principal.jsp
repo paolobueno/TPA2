@@ -7,11 +7,12 @@
 
     <h1>Mensagens</h1>
     <section id="messages">
+        <hr />
         <s:iterator value="messages">
         <article class="message">
             <p class="user"><s:property value="userName" /></p>
             <p class="text"><s:property value="message" /></p>
-            <p class="date"><s:property value="date" /></p>
+            <p class="date"><s:property value="date" /></p><hr />
         </article>
         </s:iterator>
     </section>
@@ -51,19 +52,19 @@
 
         <s:fielderror></s:fielderror>
     </form>
-
-
-</div>
+ </div> 
+<jsp:include page="footer.jsp" />
+<% } %>
+        </div>
     </div>    
     
     
     
-    
-</div>
+ 
 <div id="direita">
-			<div class="secao_direita">Seção 1 direita </div>
-			<div class="secao_direita">Seção 2 direita </div>
-			<div class="secao_direita">Seção 3 direita </div>
+			<div class="secao_direita">SeÃ§Ã£o 1 direita </div>
+			<div class="secao_direita">SeÃ§Ã£o 2 direita </div>
+			<div class="secao_direita">SeÃ§Ã£o 3 direita </div>
     </div>
 	<div style="clear: both;"></div>	
      <div id="rodape">
@@ -74,5 +75,5 @@
 		</div>
      </div>
 
-<jsp:include page="footer.jsp" />
-<% } %>
+</div>
+
