@@ -8,6 +8,7 @@
     <h1>Mensagens</h1>
     <section id="messages">
         <hr />
+        <div id="miolo2">
         <s:iterator value="messages">
         <article class="message">
             <p class="user"><s:property value="userName"/></p>
@@ -15,12 +16,15 @@
             <p class="date"><s:property value="date" /></p><hr />
         </article>
         </s:iterator>
+        </div>
     </section>
     <% if(UserManager.isLoggedIn(session)) { %>
     <!-- Adicionado por Junior, contador e limitador de caracteres 10/04/2014 -->
 </div>
     
 <div class="secao_miolo">    
+    
+    
     <form name="myform" method="POST" action="messages">
         <label for="message">Mensagem</label>
 
@@ -62,9 +66,9 @@
     
  
 <div id="direita">
-			<div class="secao_direita">SeÃ§Ã£o 1 direita </div>
-			<div class="secao_direita">SeÃ§Ã£o 2 direita </div>
-			<div class="secao_direita">SeÃ§Ã£o 3 direita </div>
+			<div class="secao_direita">Seção 1 direita </div>
+			<div class="secao_direita">Seção 2 direita </div>
+			<div class="secao_direita">Seção 3 direita </div>
     </div>
 	<div style="clear: both;"></div>	
      <div id="rodape">
