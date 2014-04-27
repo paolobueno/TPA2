@@ -17,6 +17,7 @@ public class Users implements KeyedRepository<String, User> {
     private static void seedTestUsers(Users users) {
         users.add("admin", "1234");
         users.add("paolo", "123");
+        users.add("junior", "1234");
     }
     HashMap<String, User> users = new HashMap<String, User>();
     
