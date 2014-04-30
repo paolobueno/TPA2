@@ -1,5 +1,5 @@
 <%@page import="com.paolobueno.tpa2.collections.UserManager"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 %><%@taglib prefix="s" uri="/struts-tags"
 %><jsp:include page="header.jsp"
 />
@@ -65,15 +65,11 @@
     
     
  
-<div id="direita">
-			<div class="secao_direita">Seção 1 direita </div>
-			<div class="secao_direita">Seção 2 direita </div>
-			<div class="secao_direita">Seção 3 direita </div>
-    </div>
+
 	<div style="clear: both;"></div>	
      <div id="rodape">
 		<div id="rodape_direita">
-			Universidade Presbiteriana Mackenzie<br/>
+                    <strong>Universidade Presbiteriana Mackenzie</strong><br/>
 			TPA 2 - Prof Leandro<br/>
 			Alunos: Anisio Junior, Carlos Bragatto, Paolo Haji, Paulo Henrique Oliveira
 		</div>
