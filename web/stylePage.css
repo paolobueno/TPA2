@@ -22,7 +22,7 @@ body {
 #meio {
 	position: absolute;
 	width: 851px;
-	background-color: #F5FFFA;
+	background-color: #00FFCC;
 }
 
 #rodape {
@@ -31,18 +31,11 @@ body {
         background-color: #1E90FF; //skyBlue1
 }
 
-#esquerda {
-	float: left;
-	width: 140px;
-        height:611px;
-        min-height:100%;
-        background-color: #87CEEB;
-}
 
 #miolo {
 	float: left;
-	width: 569px;
-        background-color: #F5FFFA;
+	width: 850px;
+        background-color: #66CCFF;
         border: 1px solid #708090;
         
         
@@ -52,13 +45,6 @@ body {
         height: 380px;
         overflow:scroll;
 } 
-
-#direita {
-	float: right;
-	min-height: 600px;
-        height: 611px;
-        background-color: #87CEEB;
-}
 
 #menu {
 	width: 150px;
@@ -105,16 +91,9 @@ body {
 
 .secao_miolo {
 	text-align: center;
-	background-color: #F5FFFA;
+	background-color: #66CCFF;
 }
 
-
-.secao_direita {
-	width: 140px;
-        height: 100px;
-	text-align: center;
-	background-color: #87CEEB;
-}
 
 #rodape_direita {
 	float: right;
