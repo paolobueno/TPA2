@@ -18,10 +18,8 @@
         </s:iterator>
         </div>
     </section>
-    <% if(UserManager.isLoggedIn(session)) { %>
-    <!-- Adicionado por Junior, contador e limitador de caracteres 10/04/2014 -->
 </div>
-    
+<% if(UserManager.isLoggedIn(session)) { %>
 <div class="secao_miolo">
     
     
@@ -33,27 +31,8 @@
 
         <s:fielderror></s:fielderror>
     </form>
- </div> 
-<jsp:include page="footer.jsp" />
-<% } %>
-        </div>
-    </div>    
-    
-    
-    
- 
-
-	<div style="clear: both;"></div>	
-     <div id="rodape">
-		<div id="rodape_direita">
-                    <strong>Universidade Presbiteriana Mackenzie</strong><br/>
-			TPA 2 - Prof Leandro<br/>
-			Alunos: Anisio Junior, Carlos Bragatto, Paolo Haji, Paulo Henrique Oliveira
-		</div>
-     </div>
-
 </div>
-
+<% } %>
 <script type="text/javascript">
 var count = 255;
 var limitEl = document.getElementById("limit");
@@ -71,3 +50,4 @@ function limiter(){
 messageEl.onkeyup = limiter;
 limitEl.value = count;
 </script>
+<jsp:include page="footer.jsp" />

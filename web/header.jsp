@@ -8,30 +8,28 @@
     </head>
  <div id="todo">
         <div id="meio">
+            <div id="miolo">
+                    <div class="secao_miolo">
 
-		<div id="miolo">
-			<div class="secao_miolo">
-                            
-                                <% if(UserManager.isLoggedIn(session)) { %>
-                                <p class="boavindanome">Ol&aacute;, <%= session.getAttribute("usuario") %></p>
-                                <p class="boavinda"><%= UserManager.getCount() %> usu&aacute;rios logados agora</p>
-                                <p class="boavindadir">
-                                    <a href="logout">Logout</a>
-                                </p>
-                                <% } else { %>
-                                <h2>Login</h2>
-                                <s:actionerror/>
-                                <form action="login" method="POST">
-                                    <label for="login">Login</label>
-                                    <input id="login" type="text" name="login"/>
+                            <% if(UserManager.isLoggedIn(session)) { %>
+                            <p class="boavindanome">Ol&aacute;, <%= session.getAttribute("usuario") %></p>
+                            <p class="boavinda"><%= UserManager.getCount() %> usu&aacute;rios logados agora</p>
+                            <p class="boavindadir">
+                                <a href="logout">Logout</a>
+                            </p>
+                            <% } else { %>
+                            <h2>Login</h2>
+                            <s:actionerror/>
+                            <form action="login" method="POST">
+                                <label for="login">Login</label>
+                                <input id="login" type="text" name="login"/>
 
-                                    <label for="password">Senha</label>
-                                    <input id="password" type="password" name="senha"/>
+                                <label for="password">Senha</label>
+                                <input id="password" type="password" name="senha"/>
 
-                                    <input type="submit" value="Entrar" />
-                                </form>
-                        </div>
-                                
+                                <input type="submit" value="Entrar" />
+                            </form>
                          <% } %>       
+                    </div>
                         
 
