@@ -22,7 +22,7 @@
     <!-- Adicionado por Junior, contador e limitador de caracteres 10/04/2014 -->
 </div>
     
-<div class="secao_miolo">    
+<div class="secao_miolo">
     
     
     <form name="myform" method="POST" action="messages">
