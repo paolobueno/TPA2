@@ -12,12 +12,16 @@ import com.paolobueno.tpa2.collections.MessagesDAO;
 import com.paolobueno.tpa2.collections.db.MessagesSqliteDAO;
 import com.paolobueno.tpa2.models.Message;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 public class MessagesAction extends ActionSupport {
     private String message = null;
+    private String order = "asc";
+    private List<Message> messages;
 
     public String getMessage() {
         return message;
@@ -27,10 +31,18 @@ public class MessagesAction extends ActionSupport {
         this.message = message;
     }
     
+    public String getOrder() {
+        return this.order;
+    }
+    
+    public void setOrder(String order) {
+        this.order = order;
+    }
+    
     @Override
     public String execute() {
         if (getMessage() != null) {
-            // Eh POST, devemos criar nova mensagem
+            // POST, devemos criar nova mensagem
             if (getMessage().length() > 255) {
                 addFieldError("message", "Quantidade de caracteres maior do que 255");
                 return INPUT;
@@ -45,6 +57,14 @@ public class MessagesAction extends ActionSupport {
             ));
         }
         
+        // GET
+        MessagesDAO collection = getDAO();
+        List<Message> messages = collection.findAll();
+        if ("desc".equals(getOrder())) {
+            Collections.reverse(messages);
+        }
+        this.setMessages(messages);
+        
         return SUCCESS;
     }
 
@@ -52,8 +72,12 @@ public class MessagesAction extends ActionSupport {
         return new MessagesSqliteDAO();
     }
     
-    public Collection<Message> getMessages() {
-        MessagesDAO collection = getDAO();
-        return collection.findAll();
+    
+    public List<Message> getMessages() {
+        return this.messages;
+    }
+
+    private void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }

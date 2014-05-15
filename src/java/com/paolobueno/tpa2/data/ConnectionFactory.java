@@ -15,18 +15,15 @@ import java.util.logging.Logger;
 
 public class ConnectionFactory {
     public static final int SQLITE = 1;
-    private static boolean sqliteLoaded = false;
     public static Connection getConnection(int databaseId) throws SQLException {
         switch(databaseId) {
             case SQLITE:
-            if (!sqliteLoaded)
                 try {
                     Class.forName("org.sqlite.JDBC");
-                    sqliteLoaded = true;
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            return DriverManager.getConnection("jdbc:sqlite:C:/projects/TPA2/database.db");
+                return DriverManager.getConnection("jdbc:sqlite:C:/Temp/TPA2/database.db");
             default:
                 throw new IllegalArgumentException("No available database for this id");
         }

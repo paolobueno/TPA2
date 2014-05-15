@@ -6,8 +6,11 @@
 
 package com.paolobueno.tpa2.collections;
 
+import com.paolobueno.tpa2.models.Grouping;
 import com.paolobueno.tpa2.models.Message;
+import com.paolobueno.tpa2.models.User;
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -17,9 +20,11 @@ public interface MessagesDAO {
 
     boolean add(Message entity);
 
-    Collection<Message> findAll();
+    List<Message> findAll();
 
-    Collection<Message> findByUser(String username);
+    List<Message> findByUser(String username);
+    
+    List<Grouping<String,Message>> groupByUser();
 
     boolean remove(Message entity);
     

@@ -18,7 +18,7 @@
             <result name="login" type="redirectAction">
                 <param name="actionName">messages</param>
             </result>
-            <result name="input">principal.jsp</result>
+            <result name="input">/principal.jsp</result>
         </action>
         
         
@@ -30,6 +30,10 @@
                 <param name="status">400</param> 
                 <param name="location">/principal.jsp</param>
             </result>
+        </action>
+        
+        <action name="grouping" class="com.paolobueno.tpa2.action.GroupingAction">
+            <result name="success">/grouping.jsp</result>
         </action>
         
         <action name="logout" class="com.paolobueno.tpa2.action.LogoutAction">

@@ -8,15 +8,17 @@ package com.paolobueno.tpa2.collections.db;
 
 import com.paolobueno.tpa2.collections.MessagesDAO;
 import com.paolobueno.tpa2.data.ConnectionFactory;
+import com.paolobueno.tpa2.models.Grouping;
 import com.paolobueno.tpa2.models.Message;
+import com.paolobueno.tpa2.models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -51,11 +53,11 @@ public class MessagesSqliteDAO implements MessagesDAO {
     }
 
     @Override
-    public Collection<Message> findAll() {
+    public List<Message> findAll() {
         return findAll(null);
     }
     
-    public Collection<Message> findAll(String where) {
+    public List<Message> findAll(String where) {
         LinkedList<Message> result = null;
         
         try (Connection c = getConnection()) {
@@ -74,13 +76,44 @@ public class MessagesSqliteDAO implements MessagesDAO {
     }
 
     @Override
-    public Collection<Message> findByUser(String username) {
+    public List<Message> findByUser(String username) {
         return findAll("username = " + username);
     }
 
     @Override
     public boolean remove(Message entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Grouping<String, Message>> groupByUser() {
+        LinkedList<Grouping<String,Message>> result = null;
+        
+        try (Connection c = getConnection()) {
+            PreparedStatement s = c.prepareStatement("SELECT * FROM Messages ORDER BY username");
+            ResultSet rs = s.executeQuery();
+            result = new LinkedList<>();
+            Grouping<String, Message> g = new Grouping<>();
+            
+            while(rs.next()) {
+                if(g.getKey() != null
+                        && !g.getKey().equals(rs.getString("username")))
+                {
+                    // new user
+                    result.add(g);
+                    g = new Grouping<>();
+                }
+                g.addItem(new Message(rs));
+                g.setKey(rs.getString("username"));
+            }
+            
+            // add last user
+            result.add(g);
+            return result;
+        } catch (SQLException ex) {
+            Logger.getLogger(MessagesSqliteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return result;
+        }
     }
     
 }
