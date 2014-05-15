@@ -8,16 +8,14 @@ package com.paolobueno.tpa2.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.paolobueno.tpa2.collections.Messages;
+import com.paolobueno.tpa2.collections.MessagesDAO;
+import com.paolobueno.tpa2.collections.db.MessagesSqliteDAO;
 import com.paolobueno.tpa2.models.Message;
 import java.util.Collection;
 import java.util.Date;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
-/**
- *
- * @author Paolo
- */
 public class MessagesAction extends ActionSupport {
     private String message = null;
 
@@ -37,7 +35,7 @@ public class MessagesAction extends ActionSupport {
                 addFieldError("message", "Quantidade de caracteres maior do que 255");
                 return INPUT;
             }
-            Messages collection = Messages.getInstance();
+            MessagesDAO collection = getDAO();
             HttpSession sessao = ServletActionContext.getRequest().getSession();
             
             collection.add(new Message(
@@ -49,9 +47,8 @@ public class MessagesAction extends ActionSupport {
         
         return SUCCESS;
     }
-   
-    
-    public Collection<Message> getMessages() {
-        return Messages.getInstance().findAll();
+
+    private static MessagesDAO getDAO() {
+        return new MessagesSqliteDAO();
     }
 }

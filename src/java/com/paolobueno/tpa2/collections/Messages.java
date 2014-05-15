@@ -15,7 +15,7 @@ import java.util.LinkedList;
  *
  * @author 31227848
  */
-public class Messages {
+public class Messages implements MessagesDAO {
 
     // Singleton
     private static Messages theInstance;
@@ -34,19 +34,23 @@ public class Messages {
     private final LinkedList<Message> messages = new LinkedList<Message>();
 
     
+    @Override
     public boolean add(Message entity) {
         return messages.add(entity);
     }
 
     
+    @Override
     public boolean remove(Message entity) {
         return messages.remove(entity);
     }
     
+    @Override
     public Collection<Message> findAll() {
         return (Collection<Message>)messages.clone();
     }
     
+    @Override
     public Collection<Message> findByUser(String username){
         LinkedList<Message> result = new LinkedList<Message>();
         for(Message m : messages){

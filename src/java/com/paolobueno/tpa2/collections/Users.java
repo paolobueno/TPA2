@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author 31239943
  */
-public class Users implements KeyedRepository<String, User> {
+public class Users implements UsersDAO {
     private static Users theInstance;
 
     private static void seedTestUsers(Users users) {
@@ -32,6 +32,7 @@ public class Users implements KeyedRepository<String, User> {
         return theInstance;
     }
     
+    @Override
     public boolean verify(String username, String password) {
         if(!users.containsKey(username)) return false;
         
@@ -39,10 +40,12 @@ public class Users implements KeyedRepository<String, User> {
         return user.getPassword().equals(password);
     }
     
+    @Override
     public boolean add(String username, String password) {
         return this.add(new User(username, password));
     }
     
+    @Override
     public boolean add(User user) {
         if(users.containsKey(user.getUsername())) {
            return false;
@@ -51,6 +54,7 @@ public class Users implements KeyedRepository<String, User> {
         return true;
     }
     
+    @Override
     public boolean remove(String username) {
         if(users.remove(username) != null) {
             return true;
@@ -58,6 +62,7 @@ public class Users implements KeyedRepository<String, User> {
         return false;
     }
     
+    @Override
     public User find(String username) {
         return users.get(username);
     }

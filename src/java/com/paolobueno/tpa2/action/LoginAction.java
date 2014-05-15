@@ -5,6 +5,8 @@ import static com.opensymphony.xwork2.Action.INPUT;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import com.paolobueno.tpa2.collections.UserManager;
+import com.paolobueno.tpa2.collections.UsersDAO;
+import com.paolobueno.tpa2.collections.db.UsersSqliteDAO;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
@@ -15,7 +17,7 @@ public class LoginAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        Users users = Users.getInstance();
+        UsersDAO users = getDAO();
         if (users.verify(getLogin(), getSenha())) {
             // criando a sessao
             HttpSession sessao = ServletActionContext.getRequest().getSession();
@@ -27,6 +29,10 @@ public class LoginAction extends ActionSupport {
             addActionError(getText("login.senhaInvalida"));
             return INPUT;
         }
+    }
+
+    private static UsersDAO getDAO() {
+        return new UsersSqliteDAO();
     }
     /**
      * @return the login

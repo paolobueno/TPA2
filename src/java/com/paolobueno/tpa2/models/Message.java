@@ -4,6 +4,9 @@
  */
 package com.paolobueno.tpa2.models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -20,6 +23,12 @@ public class Message {
         this.setUserName(username);
         this.setMessage(message);
         this.setDate(date);
+    }
+
+    public Message(ResultSet rs) throws SQLException {
+        this.setUserName(rs.getString("username"));
+        this.setMessage(rs.getString("message"));
+        this.setDate(rs.getTimestamp("date"));
     }
 
     /**

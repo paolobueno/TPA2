@@ -4,6 +4,9 @@
  */
 package com.paolobueno.tpa2.models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author 31239943
@@ -15,6 +18,11 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(ResultSet rs) throws SQLException {
+        this.username = rs.getString("username");
+        this.password = rs.getString("password");
     }
 
     public String getUsername() {
