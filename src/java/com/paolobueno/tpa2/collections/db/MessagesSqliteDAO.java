@@ -59,7 +59,8 @@ public class MessagesSqliteDAO implements MessagesDAO {
         LinkedList<Message> result = null;
         
         try (Connection c = getConnection()) {
-            PreparedStatement s = c.prepareStatement("SELECT * FROM Messages " + where);
+            PreparedStatement s = c.prepareStatement("SELECT * FROM Messages " + 
+                    (where == null ? "" : "WHERE " + where));
             ResultSet rs = s.executeQuery();
             result = new LinkedList<>();
             while(rs.next()) {
@@ -74,7 +75,7 @@ public class MessagesSqliteDAO implements MessagesDAO {
 
     @Override
     public Collection<Message> findByUser(String username) {
-        return findAll("WHERE username = " + username);
+        return findAll("username = " + username);
     }
 
     @Override

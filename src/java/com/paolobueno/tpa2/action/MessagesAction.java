@@ -51,4 +51,9 @@ public class MessagesAction extends ActionSupport {
     private static MessagesDAO getDAO() {
         return new MessagesSqliteDAO();
     }
+    
+    public Collection<Message> getMessages() {
+        MessagesDAO collection = getDAO();
+        return collection.findAll();
+    }
 }
