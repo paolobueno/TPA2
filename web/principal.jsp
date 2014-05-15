@@ -25,33 +25,10 @@
 <div class="secao_miolo">
     
     
-    <form name="myform" method="POST" action="messages">
+    <form id="theForm" method="POST" action="messages">
         <label for="message">Mensagem</label>
-
-     <!-- Script by hscripts.com --> 
-                    <script type="text/javascript">
-                    var count = "255";  
-                    function limiter(){
-                    var tex = document.myform.message.value;
-                    var len = tex.length;
-                    if(len > count){
-                            tex = tex.substring(0,count);
-                            document.myform.message.value =tex;
-                            return false;
-                    }
-                    document.myform.limit.value = count-len;
-                    }
-
-                    </script>
-    <!-- Script by hscripts.com -->
-
-
-        <textarea wrap=physical rows="4" name="message"  onkeyup=limiter(); id="message"></textarea>
-
-        <script type="text/javascript">
-        document.write("<input type=text name=limit size=4 readonly value="+count+">");
-        </script>
-
+        <textarea rows="4" name="message" id="message"></textarea>
+        <input type="text" id="limit" size="4" readonly="readonly">
         <input type="submit" value="Enviar mensagem">
 
         <s:fielderror></s:fielderror>
@@ -77,3 +54,20 @@
 
 </div>
 
+<script type="text/javascript">
+var count = 255;
+var limitEl = document.getElementById("limit");
+var messageEl = document.getElementById("message");
+function limiter(){
+    var tex = messageEl.value;
+    var len = tex.length;
+    if(len > count){
+            tex = tex.substring(0,count);
+            messageEl.value = tex;
+            return false;
+    }
+    limitEl.value = count-len;
+}
+messageEl.onkeyup = limiter;
+limitEl.value = count;
+</script>

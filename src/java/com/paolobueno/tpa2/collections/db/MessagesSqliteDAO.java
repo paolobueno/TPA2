@@ -33,7 +33,7 @@ public class MessagesSqliteDAO implements MessagesDAO {
     @Override
     public boolean add(Message entity) {
         try(Connection c = getConnection()){
-            PreparedStatement ps = c.prepareStatement("INSERT INTO Messages (message, date, username) VALUES (?,?,?");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO Messages (message, date, username) VALUES (?,?,?)");
             ps.setString(1, entity.getMessage());
             
             Date now = new Date();

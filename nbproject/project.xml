@@ -54,10 +54,6 @@
                     <file>${file.reference.xwork-core-2.3.15.3.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
-                <library dirs="200">
-                    <file>${file.reference.sqlite-jdbc4-3.8.2-SNAPSHOT.jar}</file>
-                    <path-in-war>WEB-INF/lib</path-in-war>
-                </library>
             </web-module-libraries>
             <web-module-additional-libraries/>
             <source-roots>

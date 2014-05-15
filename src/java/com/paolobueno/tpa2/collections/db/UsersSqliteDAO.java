@@ -54,7 +54,10 @@ public class UsersSqliteDAO implements UsersDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return new User(rs);
-            } else return null;
+            } else {
+                System.out.println("User not found: " + username);
+                return null;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(UsersSqliteDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
